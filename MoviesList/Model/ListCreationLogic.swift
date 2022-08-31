@@ -8,9 +8,14 @@
 import Foundation
 
 struct ListCreationLogic {
+    
+    //MARK: - Properties
+    
     let title: String
     let year: Int
     var generatedModelList:[String]
+    
+    //MARK: - Methods
     
     private func mergingWords() -> String {
         let name = title
@@ -21,9 +26,10 @@ struct ListCreationLogic {
     mutating func generationOfList() {
         let merging = mergingWords()
         generatedModelList.append("\(merging)")
-        
     }
 }
+
+//MARK: - Validation of duplicate
 
 extension Array where Element: Hashable {
     func removingDuplicates() -> [Element] {
