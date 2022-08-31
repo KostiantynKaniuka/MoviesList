@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Movies List View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MoviesListViewController" customModule="MoviesList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xzc-ND-WtH">
+                                <rect key="frame" x="0.0" y="178" width="414" height="718"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="y6q-Gy-ucV">
+                                <rect key="frame" x="20" y="44" width="374" height="126"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pd9-Xq-fFM" userLabel="Title Text Field">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="bh9-SI-54J"/>
+                                            <constraint firstAttribute="width" constant="374" id="o1Q-Ji-fpj"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Year" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iIC-6R-pgY" userLabel="Year Text Field">
+                                        <rect key="frame" x="0.0" y="44" width="374" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="olM-O0-QZr"/>
+                                            <constraint firstAttribute="width" constant="374" id="qQk-1n-Q7P"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M42-g3-NQp">
+                                        <rect key="frame" x="153" y="88" width="68" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="68" id="bo1-mv-qEF"/>
+                                            <constraint firstAttribute="height" constant="38" id="cTK-5v-Tva"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Add"/>
+                                        <connections>
+                                            <action selector="addToList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M2l-hO-pNq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="126" id="1aS-SA-XPy"/>
+                                    <constraint firstAttribute="width" constant="374" id="KMR-rb-U03"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="y6q-Gy-ucV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="1Hu-GD-pHf"/>
+                            <constraint firstAttribute="bottom" secondItem="xzc-ND-WtH" secondAttribute="bottom" id="EcT-5w-BhE"/>
+                            <constraint firstItem="xzc-ND-WtH" firstAttribute="top" secondItem="y6q-Gy-ucV" secondAttribute="bottom" constant="8" symbolic="YES" id="JZB-9H-yaE"/>
+                            <constraint firstItem="y6q-Gy-ucV" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="MV7-U4-YjL"/>
+                            <constraint firstItem="y6q-Gy-ucV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Znb-YR-nOv"/>
+                            <constraint firstItem="xzc-ND-WtH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dcz-Px-dsk"/>
+                            <constraint firstItem="xzc-ND-WtH" firstAttribute="top" secondItem="y6q-Gy-ucV" secondAttribute="bottom" constant="8" symbolic="YES" id="jDo-Nn-ebc"/>
+                            <constraint firstItem="xzc-ND-WtH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="owF-X9-Ub0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="y6q-Gy-ucV" secondAttribute="trailing" constant="20" id="qH4-Z3-xgv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="moviesTableView" destination="xzc-ND-WtH" id="PxZ-jd-fvf"/>
+                        <outlet property="titleTextField" destination="pd9-Xq-fFM" id="jBX-mX-Tnh"/>
+                        <outlet property="yearTextField" destination="iIC-6R-pgY" id="Wgk-ES-HQE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="28.985507246376812" y="83.705357142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
