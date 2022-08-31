@@ -40,7 +40,6 @@ class MoviesListViewController: UIViewController {
         moviesTableView.insertRows(at: [IndexPath(row: generatedList.count-1, section: 0)], with: .automatic)
         moviesTableView.endUpdates()
     }
-    
 }
 
 //MARK: - TableViewDelegate
@@ -50,13 +49,18 @@ extension MoviesListViewController: UITableViewDelegate {
 
 //MARK: - TableViewDataSource
 extension MoviesListViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return generatedList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: idCell) as! CustomTableViewCell
-        cell.cellLabel.text = generatedList[indexPath.row]
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: idCell) as? CustomTableViewCell
+        cell?.cellLabel?.text = generatedList[indexPath.row]
+        return cell!
     }
 }
