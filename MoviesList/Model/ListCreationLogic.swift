@@ -17,14 +17,12 @@ struct ListCreationLogic {
     
     //MARK: - Methods
     
-    private func mergingWords() -> String {
-        let name = title
-        let date = year
-        return "\(name) \(String(date))"
+    private func mergeWords() -> String {
+        return "\(title) \(String(year))"
     }
     
-    mutating func generationOfList() {
-        let merging = mergingWords()
+    mutating func generateList() {
+        let merging = mergeWords()
         generatedModelList.append("\(merging)")
     }
 }

@@ -41,15 +41,14 @@ final class MoviesListViewController: UIViewController {
         var model = ListCreationLogic(title: titleTextField.text ?? "",
                                       year: Int(yearTextField.text ?? "") ?? 0,
                                       generatedModelList: generatedList)
-        model.generationOfList()
-        if generatedList != model.generatedModelList.removingDuplicates() {
+        model.generateList()
+        let noDuplicates = generatedList != model.generatedModelList.removingDuplicates()
+        if noDuplicates == true {
             generatedList = model.generatedModelList
             moviesTableView.beginUpdates()
             moviesTableView.insertRows(at: [IndexPath(row: generatedList.count-1,
                                                       section: 0)], with: .automatic)
             moviesTableView.endUpdates()
-        } else {
-            return
         }
     }
 }
@@ -58,7 +57,7 @@ final class MoviesListViewController: UIViewController {
 extension MoviesListViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        1
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -85,7 +84,8 @@ extension MoviesListViewController: UITextFieldDelegate {
         textField.isSelected = true
         if textField == titleTextField {
             titleTextField.text = ""
-        } else if textField == yearTextField {
+        }
+        if textField == yearTextField {
             yearTextField.text = ""
         }
     }
@@ -100,5 +100,4 @@ extension MoviesListViewController: UITextFieldDelegate {
         }
         return true
     }
-    
 }

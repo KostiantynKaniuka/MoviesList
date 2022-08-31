@@ -17,7 +17,7 @@ class MoviesListTests: XCTestCase {
         let emptyArray:[String] = []
         var sut = ListCreationLogic(title: inputName, year: inputDate, generatedModelList: emptyArray)
         //When
-        sut.generationOfList()
+        sut.generateList()
         let expectedOutput = ["Matrix 23"]
         //Then
         XCTAssertTrue(sut.generatedModelList == expectedOutput)
