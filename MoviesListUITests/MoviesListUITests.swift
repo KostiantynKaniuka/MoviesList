@@ -2,7 +2,7 @@
 //  MoviesListUITests.swift
 //  MoviesListUITests
 //
-//  Created by Константин Канюка on 31.08.2022.
+//  Created by Kostiantyn Kaniuka on 31.08.2022.
 //
 
 import XCTest
@@ -11,12 +11,21 @@ import XCTest
 
 class MoviesListUITests: XCTestCase {
     var app: XCUIApplication!
+    lazy var yearTextFied = app.textFields.element(boundBy: 1)
     
     override func setUpWithError() throws {
         self.app = XCUIApplication()
         self.app.launch()
     }
-
-    override func tearDownWithError() throws {
+    
+    func testOnlyNumbers() throws {
+        // Given
+        let input = "2283fas3"
+        let expectedOutput = "22833"
+        //When
+        yearTextFied.tap()
+        yearTextFied.typeText(input)
+        //Then
+        XCTAssertEqual((yearTextFied.value as? String), expectedOutput)
     }
 }

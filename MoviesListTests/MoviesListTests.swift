@@ -2,14 +2,13 @@
 //  MoviesListTests.swift
 //  MoviesListTests
 //
-//  Created by Константин Канюка on 31.08.2022.
+//  Created by Kostiantyn Kaniuka on 31.08.2022.
 //
 
 import XCTest
 @testable import MoviesList
 
 class MoviesListTests: XCTestCase {
-
 
     func testIfWorads_Are_Merged() throws {
         //Given

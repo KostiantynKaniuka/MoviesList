@@ -2,7 +2,7 @@
 //  CustomTableViewCell.swift
 //  MoviesList
 //
-//  Created by Константин Канюка on 31.08.2022.
+//  Created by Kostiantyn Kaniuka on 31.08.2022.
 //
 
 import UIKit
@@ -10,7 +10,6 @@ import UIKit
 class CustomTableViewCell: UITableViewCell {
 
     @IBOutlet var cellLabel: UILabel!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()

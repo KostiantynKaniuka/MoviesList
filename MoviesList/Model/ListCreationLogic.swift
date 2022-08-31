@@ -2,7 +2,7 @@
 //  Model.swift
 //  MoviesList
 //
-//  Created by Константин Канюка on 31.08.2022.
+//  Created by Kostiantyn Kaniuka on 31.08.2022.
 //
 
 import Foundation
