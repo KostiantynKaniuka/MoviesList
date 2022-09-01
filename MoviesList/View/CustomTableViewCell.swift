@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomTableViewCell: UITableViewCell {
+final class CustomTableViewCell: UITableViewCell {
 
     @IBOutlet var cellLabel: UILabel!
     

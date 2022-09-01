@@ -29,7 +29,7 @@ final class MoviesListViewController: UIViewController {
     
     //MARK: - Properties
     private let idCell = "MoviesCell"
-    private var generatedList:[String] = []
+    private var moviesSet = Set<Movies>()
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -38,15 +38,15 @@ final class MoviesListViewController: UIViewController {
     
     //MARK: - Action
     @IBAction func addToList(_ sender: Any) {
-        var model = ListCreationLogic(title: titleTextField.text ?? "",
-                                      year: Int(yearTextField.text ?? "") ?? 0,
-                                      generatedModelList: generatedList)
-        model.generateList()
-        let noDuplicates = generatedList != model.generatedModelList.removingDuplicates()
-        if noDuplicates == true {
-            generatedList = model.generatedModelList
+        let model = Movies(name: titleTextField.text ?? "", releaseDate:
+                            Int(yearTextField.text ?? "") ?? 0)
+        let oldMoviesList = moviesSet
+        moviesSet.insert(model)
+        let newMoviesList = moviesSet
+        if oldMoviesList != newMoviesList {
             moviesTableView.beginUpdates()
-            moviesTableView.insertRows(at: [IndexPath(row: generatedList.count-1,
+            moviesTableView.reloadData()
+            moviesTableView.insertRows(at: [IndexPath(row: moviesSet.count-1,
                                                       section: 0)], with: .automatic)
             moviesTableView.endUpdates()
         }
@@ -61,12 +61,16 @@ extension MoviesListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return generatedList.count
+        return moviesSet.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: idCell) as? CustomTableViewCell
-        cell?.cellLabel?.text = generatedList[indexPath.row]
+        var moviesArray = Array(moviesSet)
+        moviesArray.sort {
+            $0.addingToListDate < $1.addingToListDate
+        }
+        cell?.cellLabel?.text = "\(moviesArray[indexPath.row].name) \(moviesArray[indexPath.row].releaseDate)"
         return cell!
     }
 }

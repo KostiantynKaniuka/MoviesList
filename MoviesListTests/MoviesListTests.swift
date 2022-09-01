@@ -10,23 +10,25 @@ import XCTest
 
 class MoviesListTests: XCTestCase {
 
-    func testIfWorads_Are_Merged() throws {
-        //Given
-        let inputDate = 23
-        let inputName = "Matrix"
-        let emptyArray:[String] = []
-        var sut = ListCreationLogic(title: inputName, year: inputDate, generatedModelList: emptyArray)
-        //When
-        sut.generateList()
-        let expectedOutput = ["Matrix 23"]
-        //Then
-        XCTAssertTrue(sut.generatedModelList == expectedOutput)
+    func testDuplicateValidation() throws {
+        var store = Set<Movies>()
+        let sut = Movies(name: "Matrix", releaseDate: 2002)
+        let sut2 = Movies(name: "Matrix", releaseDate: 2003)
+        store.insert(sut)
+        let oldStore = store
+        store.insert(sut2)
+        let newSore = store
+        XCTAssertTrue(newSore == oldStore)
     }
-
-    func testIfDuplicateValidation() throws {
-        let Input = ["Matrix 23"]
-        let secondInput = ["Matrix 23", "Matrix 23"]
-        XCTAssertTrue(Input == secondInput.removingDuplicates())
+    
+    func testCapitalizationCheck() throws {
+        var store = Set<Movies>()
+        let sut = Movies(name: "Matrix", releaseDate: 2002)
+        let sut2 = Movies(name: "matrix", releaseDate: 2003)
+        store.insert(sut)
+        let oldStore = store
+        store.insert(sut2)
+        let newSore = store
+        XCTAssertFalse(newSore == oldStore)
     }
-
 }

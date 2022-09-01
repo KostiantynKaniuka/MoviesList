@@ -17,7 +17,7 @@
 		E715B2F228BF518800293E4D /* MoviesListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E715B2F128BF518800293E4D /* MoviesListUITests.swift */; };
 		E78019D428BF5A6D0013C766 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78019D228BF5A6D0013C766 /* CustomTableViewCell.swift */; };
 		E78019D528BF5A6D0013C766 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E78019D328BF5A6D0013C766 /* CustomTableViewCell.xib */; };
-		E78019D728BF6C450013C766 /* ListCreationLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78019D628BF6C450013C766 /* ListCreationLogic.swift */; };
+		E7CC977D28C0E65C005C2919 /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CC977C28C0E65C005C2919 /* Movies.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +52,7 @@
 		E715B2F128BF518800293E4D /* MoviesListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListUITests.swift; sourceTree = "<group>"; };
 		E78019D228BF5A6D0013C766 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		E78019D328BF5A6D0013C766 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
-		E78019D628BF6C450013C766 /* ListCreationLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCreationLogic.swift; sourceTree = "<group>"; };
+		E7CC977C28C0E65C005C2919 /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +144,7 @@
 		E78019D828BFBAF30013C766 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E78019D628BF6C450013C766 /* ListCreationLogic.swift */,
+				E7CC977C28C0E65C005C2919 /* Movies.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -289,8 +289,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E78019D728BF6C450013C766 /* ListCreationLogic.swift in Sources */,
 				E715B2D528BF518700293E4D /* MoviesListViewController.swift in Sources */,
+				E7CC977D28C0E65C005C2919 /* Movies.swift in Sources */,
 				E715B2D128BF518700293E4D /* AppDelegate.swift in Sources */,
 				E78019D428BF5A6D0013C766 /* CustomTableViewCell.swift in Sources */,
 				E715B2D328BF518700293E4D /* SceneDelegate.swift in Sources */,
