@@ -17,7 +17,7 @@ struct Movies: Hashable {
     }
     
     static func ==(lhs: Movies, rhs: Movies) -> Bool {
-        return lhs.name.uppercased() == rhs.name.uppercased()
+        return lhs.name.lowercased() == rhs.name.lowercased()
     }
 }
 
