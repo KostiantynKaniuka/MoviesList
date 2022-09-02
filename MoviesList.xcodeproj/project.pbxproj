@@ -18,6 +18,7 @@
 		E78019D428BF5A6D0013C766 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78019D228BF5A6D0013C766 /* CustomTableViewCell.swift */; };
 		E78019D528BF5A6D0013C766 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E78019D328BF5A6D0013C766 /* CustomTableViewCell.xib */; };
 		E7CC977D28C0E65C005C2919 /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CC977C28C0E65C005C2919 /* Movies.swift */; };
+		E7F781C028C211B90004A1C7 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = E7F781BF28C211B90004A1C7 /* Collections */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7F781C028C211B90004A1C7 /* Collections in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +175,9 @@
 			dependencies = (
 			);
 			name = MoviesList;
+			packageProductDependencies = (
+				E7F781BF28C211B90004A1C7 /* Collections */,
+			);
 			productName = MoviesList;
 			productReference = E715B2CD28BF518700293E4D /* MoviesList.app */;
 			productType = "com.apple.product-type.application";
@@ -245,6 +250,9 @@
 				Base,
 			);
 			mainGroup = E715B2C428BF518700293E4D;
+			packageReferences = (
+				E7F781BE28C211B90004A1C7 /* XCRemoteSwiftPackageReference "swift-collections" */,
+			);
 			productRefGroup = E715B2CE28BF518700293E4D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -634,6 +642,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E7F781BE28C211B90004A1C7 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E7F781BF28C211B90004A1C7 /* Collections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E7F781BE28C211B90004A1C7 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = Collections;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E715B2C528BF518700293E4D /* Project object */;
 }

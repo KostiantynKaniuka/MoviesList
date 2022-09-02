@@ -10,7 +10,6 @@ import Foundation
 struct Movies: Hashable {
     let name: String
     let releaseDate: Int
-    let addingToListDate = Date()
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)

@@ -5,6 +5,7 @@
 //  Created by Kostiantyn Kaniuka on 31.08.2022.
 //
 
+import OrderedCollections
 import UIKit
 
 final class MoviesListViewController: UIViewController {
@@ -29,7 +30,7 @@ final class MoviesListViewController: UIViewController {
     
     //MARK: - Properties
     private let idCell = "MoviesCell"
-    private var moviesSet = Set<Movies>()
+    private var moviesSet = OrderedSet<Movies>()
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -40,14 +41,12 @@ final class MoviesListViewController: UIViewController {
     @IBAction func addToList(_ sender: Any) {
         let model = Movies(name: titleTextField.text ?? "", releaseDate:
                             Int(yearTextField.text ?? "") ?? 0)
-        let oldMoviesList = moviesSet
-        moviesSet.insert(model)
-        let newMoviesList = moviesSet
-        if oldMoviesList != newMoviesList {
+        if moviesSet._customContainsEquatableElement(model) == false {
+            moviesSet.insert(model, at: 0)
             moviesTableView.beginUpdates()
-            moviesTableView.reloadData()
             moviesTableView.insertRows(at: [IndexPath(row: moviesSet.count-1,
                                                       section: 0)], with: .automatic)
+            moviesTableView.reloadSections(IndexSet(integer: 0), with: .automatic)
             moviesTableView.endUpdates()
         }
     }
@@ -66,11 +65,7 @@ extension MoviesListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: idCell) as? CustomTableViewCell
-        var moviesArray = Array(moviesSet)
-        moviesArray.sort {
-            $0.addingToListDate < $1.addingToListDate
-        }
-        cell?.cellLabel?.text = "\(moviesArray[indexPath.row].name) \(moviesArray[indexPath.row].releaseDate)"
+        cell?.cellLabel?.text = "\(moviesSet[indexPath.row].name) \(moviesSet[indexPath.row].releaseDate)"
         return cell!
     }
 }
