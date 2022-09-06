@@ -10,17 +10,17 @@ import UIKit
 
 final class MoviesListViewController: UIViewController {
     //MARK: - Outlets
-    @IBOutlet var titleTextField: UITextField! {
+    @IBOutlet private var titleTextField: UITextField! {
         didSet {
             titleTextField.delegate = self
         }
     }
-    @IBOutlet var yearTextField: UITextField! {
+    @IBOutlet private var yearTextField: UITextField! {
         didSet {
             yearTextField.delegate = self
         }
     }
-    @IBOutlet var moviesTableView: UITableView! {
+    @IBOutlet private var moviesTableView: UITableView! {
         didSet {
             moviesTableView.dataSource = self
             moviesTableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil),
@@ -38,7 +38,7 @@ final class MoviesListViewController: UIViewController {
     }
     
     //MARK: - Action
-    @IBAction func addToList(_ sender: Any) {
+    @IBAction private func addToList(_ sender: Any) {
         let model = Movies(name: titleTextField.text ?? "", releaseDate:
                             Int(yearTextField.text ?? "") ?? 0)
         if moviesSet._customContainsEquatableElement(model) == false {
@@ -46,7 +46,7 @@ final class MoviesListViewController: UIViewController {
             moviesTableView.beginUpdates()
             moviesTableView.insertRows(at: [IndexPath(row: moviesSet.count-1,
                                                       section: 0)], with: .automatic)
-            moviesTableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+            moviesTableView.reloadSections(IndexSet(integer: 0), with: .none)
             moviesTableView.endUpdates()
         }
     }
